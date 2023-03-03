@@ -19,7 +19,7 @@ export interface UserInfo {
 export interface ButtonOption {
     text: String;
     callback_data: String;
-    url: String;
+    url?: String;
 }
 
 export interface Res extends Express.Response {

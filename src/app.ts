@@ -15,9 +15,10 @@ app.get("/", (req, res) => {
 });
 
 app.post('/movestate', (req: TypedRequestBody<Req>, res: TypedResponse<Res>) => {
-  res.json(buildResponse(req.body))
+  // res.json(buildResponse(req.body))
+  buildResponse(req.body,res)
 })
 
 app.listen(3000, () => {
-  console.log("Server listening on port 3001");
+  console.log("Server listening on port 3000");
 });
