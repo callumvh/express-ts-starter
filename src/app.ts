@@ -14,9 +14,13 @@ app.get("/", (req, res) => {
   res.send("Hello cal!");
 });
 
-app.post('/movestate', (req: TypedRequestBody<Req>, res: TypedResponse<Res>) => {
-  // res.json(buildResponse(req.body))
-  buildResponse(req.body,res)
+app.post('/movestate', async (req: TypedRequestBody<Req>, res: TypedResponse<Res>) => {
+
+  try {
+    const retObject = await buildResponse(req.body);
+    res.json(retObject);
+  } catch (error) {
+  }
 })
 
 app.listen(3000, () => {
