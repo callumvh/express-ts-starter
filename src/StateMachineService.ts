@@ -6,8 +6,6 @@ import { promiseMachine as stateMachine } from "./Machine";
 export const buildResponse = (botStateRequest: Req): Promise<Res> => {
     return new Promise<Res>((resolve, reject) => {
 
-        // let retObject: Res;
-
         const promiseService = interpret(stateMachine).onTransition((state) => {
             console.log(state.nextEvents)
             const opts: ButtonOption[] = state.nextEvents.map((event) => {
@@ -21,7 +19,6 @@ export const buildResponse = (botStateRequest: Req): Promise<Res> => {
                 options: opts
             }
             if (state.event.type !== "xstate.init")
-                // botStateResponse.json(retObject)
                 resolve(retObject);
         }
 
